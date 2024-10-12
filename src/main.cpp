@@ -32,8 +32,7 @@ void update(VerletObject& obj, float dt){
     float sub_dt = dt /static_cast<float>(8);
 
     sf::Vector2f g = {0.0f, 1000.0f};
-    for(int i{8}; i--;){
-
+    for(int i=8; i>=1; i--){
         obj.accelerate(g);
         if(obj.curr_pos.y > 880){
             obj.curr_pos.y = 880;
@@ -84,8 +83,6 @@ int main(){
                 window.close();
             }
         }
-
-        
 
         update(obj, dt);
 
