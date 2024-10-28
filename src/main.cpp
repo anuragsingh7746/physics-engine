@@ -55,7 +55,7 @@ int main(){
     
     //taget window
     sf::RenderWindow window(sf::VideoMode(960, 1080), "Engine");
-    int framelimit = 60;
+    int framelimit = 144;
     window.setFramerateLimit(framelimit);
 
     //constraint
@@ -87,8 +87,8 @@ int main(){
         update(obj, dt);
 
         window.clear();
-        window.draw(ground);
-        renderobject(window, obj);
+        window.draw(ground); //drawing ground here
+        renderobject(window, obj); //drawing object here
         window.display();
         
         float curr = clock.restart().asSeconds();
