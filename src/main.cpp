@@ -52,8 +52,8 @@ void renderobject(sf::RenderWindow &window, VerletObject& obj){
 }
 
 int main(){
-    
-    //taget window
+
+   //taget window
     sf::RenderWindow window(sf::VideoMode(960, 1080), "Engine");
     int framelimit = 144;
     window.setFramerateLimit(framelimit);
@@ -90,7 +90,7 @@ int main(){
         window.draw(ground); //drawing ground here
         renderobject(window, obj); //drawing object here
         window.display();
-        
+
         float curr = clock.restart().asSeconds();
         float fps = 1.0f / curr;
         std::cout<<fps<<std::endl;
