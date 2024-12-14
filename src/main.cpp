@@ -8,24 +8,24 @@
 #include <bits/stdc++.h>
 #include <cmath>
 
-struct VerletObject{
+class VerletObject{
+    public:
+        sf::Vector2f curr_pos = sf::Vector2f(480.f, 0.f);
+        sf::Vector2f prev_pos = sf::Vector2f(480.f, 0.f);
+        sf::Vector2f acc = sf::Vector2f(0.f, 0.f);
 
-    sf::Vector2f curr_pos = sf::Vector2f(480.f, 0.f);
-    sf::Vector2f prev_pos = sf::Vector2f(480.f, 0.f);
-    sf::Vector2f acc = sf::Vector2f(0.f, 0.f);
-    
-    void updatePosition(float dt){
-        sf::Vector2f displacement = curr_pos - prev_pos;
-        prev_pos = curr_pos;
-        curr_pos = curr_pos + displacement + (acc * dt * dt); //verlet integration: x(n+1) = 2x(n) - x(n-1) + a*dt*dt;
-        //reset acceleration
-        acc = {};
-    }
+        void updatePosition(float dt){
+            sf::Vector2f displacement = curr_pos - prev_pos;
+            prev_pos = curr_pos;
+            curr_pos = curr_pos + displacement + (acc * dt * dt); //verlet integration: x(n+1) = 2x(n) - x(n-1) + a*dt*dt;
+                                                                  //reset acceleration
+            acc = {};
+        }
 
 
-    void accelerate(sf::Vector2f a){
-        acc += a;
-    }
+        void accelerate(sf::Vector2f a){
+            acc += a;
+        }
 };
 
 void update(VerletObject& obj, float dt){
