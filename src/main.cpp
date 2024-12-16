@@ -53,7 +53,7 @@ void renderobject(sf::RenderWindow &window, VerletObject& obj){
 
 int main(){
 
-   //taget window
+    //taget window
     sf::RenderWindow window(sf::VideoMode(960, 1080), "Engine");
     int framelimit = 144;
     window.setFramerateLimit(framelimit);
